@@ -16,7 +16,7 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.get("/", (req, res) => {
-    res.render("home");
+    res.send("twitter clone");
 });
 app.use("/user", user_1.default);
 app.use("/login", login_1.default);

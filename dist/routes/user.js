@@ -25,10 +25,11 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
     });
     console.log(response);
+    res.send({ response });
 }));
 router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const allUser = yield prisma.user.findMany();
-    res.json();
+    res.json(allUser);
 }));
 router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userId = parseInt(req.params.id);
@@ -49,7 +50,7 @@ router.delete("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* 
             id: userId,
         }
     });
-    res.json(deleteUser);
+    res.redirect("/user/");
 }));
 router.put("/:id", (req, res) => {
     const userId = parseInt(req.params.id);

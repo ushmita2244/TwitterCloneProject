@@ -18,7 +18,7 @@ router.post("/",async(req,res)=>{
 
 router.get("/",async (req,res)=>{
   const allUser = await prisma.user.findMany();
-  res.json();
+  res.json(allUser);
 })
 router.get("/:id",async(req,res)=>{
   const userId=parseInt(req.params.id);
@@ -39,7 +39,7 @@ router.delete("/:id",async (req,res)=>{
           id:userId,
       }
   })
-  res.json(deleteUser);
+  res.redirect("/user/");
 })
 router.put("/:id",(req,res)=>{
   const userId = parseInt(req.params.id);

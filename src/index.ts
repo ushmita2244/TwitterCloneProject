@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended: true}));
 app.set("view engine","hbs");
 
 app.get("/",(req,res)=>{
-    res.render("home");
+   res.send("twitter clone");
 })
 
 app.use("/user", userRoute);
